@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from app.database import Base, engine
 from app.routers import account
@@ -20,3 +21,5 @@ app.add_middleware(
 app.include_router(account.router)
 app.include_router(transaction.router)
 app.include_router(transfer.router)
+
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
