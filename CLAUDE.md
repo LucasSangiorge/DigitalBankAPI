@@ -27,6 +27,12 @@ Simula operações bancárias básicas — contas, transações e transferência
 - **Conceito central novo**: transferência entre contas precisa ser **atômica** — debitar de uma conta e creditar em outra tem que acontecer como uma coisa só; se der erro no meio, nada é salvo (rollback). Ainda não implementado — é o próximo grande aprendizado desse projeto.
 - Reaproveitar todas as convenções já fixadas no ShopFlowAPI (ver `ROADMAP.md` de lá): 4 espaços de indentação, singular/plural em nomes de função, update sempre parcial, `__tablename__` em inglês plural, 404 tratado em toda busca por id.
 
+## Próximo passo planejado (depois do backend pronto)
+
+Frontend simples tipo "sistema de agência bancária" — visualmente básico (sem preocupação de design, igual sistemas reais de banco/triagem que Lucas já viu no dia a dia), só funcional: buscar conta, ver saldo, fazer depósito/saque/transferência. HTML + JS puro consumindo a API via `fetch`, com **Tabulator.js** pra exibir as tabelas (mesma técnica já usada no `agenda-medica-flask`) — decisão confirmada em 2026-09-02, descartada a opção de usar SQLAdmin (painel admin auto-gerado) por ficar menos parecido com uma tela de atendente de verdade. Só entra depois que `Transaction` e `Transfer` (com a transação atômica) estiverem prontos e testados — não interromper o aprendizado de backend pra isso agora.
+
+Depois do frontend: adicionar **testes automatizados (Pytest)** e um **pipeline básico de CI/CD (GitHub Actions)** rodando esses testes a cada push — decisão de 2026-09-03, motivada por gap identificado numa vaga real (pede "noções de testes automatizados" e cita CI/CD como diferencial). Mesmo padrão de testes que o FluxoMed já usa.
+
 ## Status
 
-Estrutura de pastas criada (`app/models`, `app/schemas`, `app/crud`, `app/routers`), `requirements.txt` e `.gitignore` prontos. Aguardando Lucas criar a conta/banco no Neon e a connection string, antes de começar o `database.py`.
+Neon configurado, `.env` com `DATABASE_URL` pronto, repositório no GitHub conectado (`github.com/LucasSangiorge/DigitalBankAPI`). Ciclo completo de `Account` (model, schema, crud, router, main) implementado e commitado. Próximo: testar `Account` rodando o servidor, depois começar o ciclo de `Transaction`.
