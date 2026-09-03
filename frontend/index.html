@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>DigitalBank - Sistema de Agência</title>
+    <link rel="stylesheet" href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>DigitalBank — Sistema de Agência</h1>
+
+    <section>
+        <h2>Nova conta</h2>
+        <form id="form-account">
+            <input type="text" id="owner_name" placeholder="Nome do titular" required>
+            <input type="text" id="account_number" placeholder="Número da conta" required>
+            <button type="submit">Criar conta</button>
+        </form>
+        <p id="msg-account" class="msg"></p>
+    </section>
+
+    <section>
+        <h2>Contas</h2>
+        <button id="btn-refresh-accounts">Atualizar lista</button>
+        <div id="table-accounts"></div>
+    </section>
+
+    <section>
+        <h2>Depósito / Saque</h2>
+        <form id="form-transaction">
+            <input type="number" id="tx-account-id" placeholder="ID da conta" required>
+            <select id="tx-type">
+                <option value="deposit">Depósito</option>
+                <option value="withdraw">Saque</option>
+            </select>
+            <input type="number" id="tx-amount" placeholder="Valor" step="0.01" required>
+            <button type="submit">Confirmar</button>
+        </form>
+        <p id="msg-transaction" class="msg"></p>
+    </section>
+
+    <section>
+        <h2>Transferência entre contas</h2>
+        <form id="form-transfer">
+            <input type="number" id="from-account-id" placeholder="Conta origem (ID)" required>
+            <input type="number" id="to-account-id" placeholder="Conta destino (ID)" required>
+            <input type="number" id="transfer-amount" placeholder="Valor" step="0.01" required>
+            <button type="submit">Transferir</button>
+        </form>
+        <p id="msg-transfer" class="msg"></p>
+    </section>
+
+    <section>
+        <h2>Extrato de uma conta</h2>
+        <form id="form-extrato">
+            <input type="number" id="extrato-account-id" placeholder="ID da conta" required>
+            <button type="submit">Ver extrato</button>
+        </form>
+        <div id="table-extrato"></div>
+    </section>
+
+    <script src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

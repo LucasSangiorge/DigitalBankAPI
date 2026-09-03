@@ -35,4 +35,4 @@ Depois do frontend: adicionar **testes automatizados (Pytest)** e um **pipeline 
 
 ## Status
 
-Neon configurado, `.env` com `DATABASE_URL` pronto, repositório no GitHub conectado (`github.com/LucasSangiorge/DigitalBankAPI`). Ciclo completo de `Account` (model, schema, crud, router, main) implementado e commitado. Próximo: testar `Account` rodando o servidor, depois começar o ciclo de `Transaction`.
+Backend completo: os 3 ciclos (`Account`, `Transaction`, `Transfer`) implementados, testados via curl (depósito, transferência atômica, saldo insuficiente, conta duplicada/inexistente — todos os casos validados) e commitados no GitHub. Próximo passo: frontend simples (Tabulator.js), depois testes automatizados + CI/CD.
